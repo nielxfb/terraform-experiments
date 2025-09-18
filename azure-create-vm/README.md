@@ -27,33 +27,34 @@ This Terraform configuration provisions a **Linux Virtual Machine (Ubuntu 24.04 
    az login
    ```
 
-2. **Initialize Terraform**
+2. **Prepare variables**
+   Copy the example `terraform.tfvars.example` into a working `terraform.tfvars` file:
+
+   ```bash
+   cp terraform.tfvars.example terraform.tfvars
+   ```
+
+   Then edit `terraform.tfvars` with your preferred values (e.g., username, SSH key path, SSH port).
+
+3. **Initialize Terraform**
 
    ```bash
    terraform init
    ```
 
-3. **Review the plan**
+4. **Review the plan**
 
    ```bash
-   terraform plan \
-     -var="username=<your_admin_username>" \
-     -var="ssh_public_key_path=~/.ssh/id_rsa.pub" \
-     -var="ssh_port=22"
+   terraform plan
    ```
 
-4. **Apply the configuration**
+5. **Apply the configuration**
 
    ```bash
-   terraform apply \
-     -var="username=<your_admin_username>" \
-     -var="ssh_public_key_path=~/.ssh/id_rsa.pub" \
-     -var="ssh_port=22"
+   terraform apply
    ```
 
-   > Replace the variables with your own values.
-
-5. **Connect to the VM**
+6. **Connect to the VM**
 
    ```bash
    ssh <your_admin_username>@<public_ip>
@@ -76,3 +77,4 @@ This Terraform configuration provisions a **Linux Virtual Machine (Ubuntu 24.04 
   ```bash
   terraform destroy
   ```
+  
